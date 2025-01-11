@@ -1,0 +1,245 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+
+#------------------
+
+- intent: show_all_products
+  examples: |
+    - Show all products
+    - Can you display all products?
+    - I want to see all the products
+    - What products are available?
+    - List all products for me
+
+- intent: search_by_name
+  examples: |
+    - Find a product by [Nimfa](name) name.
+    - I am looking for [Nimfa](name)
+    - Show me [Nimfa](name)
+    - Can you find [Nimfa](name)?
+    - Find a product by [Blue Parakeet](name) name.
+    - I am looking for [Blue Parakeet](name)
+    - Show me [Blue Parakeet](name)
+    - Can you find [Blue Parakeet](name)?
+    - Find a product by [Camelot Macaw](name) name.
+    - I am looking for [Camelot Macaw](name)
+    - Show me [Camelot Macaw](name)
+    - Can you find [Camelot Macaw](name)?
+    - Find a product by [Solomon Eclectus](name) name.
+    - I am looking for [Solomon Eclectus](name)
+    - Show me [Solomon Eclectus](name)
+    - Can you find [Solomon Eclectus](name)?
+    - Find a product by [Mitchell's Cockatoo](name) name.
+    - I am looking for [Mitchell's Cockatoo](name)
+    - Show me [Mitchell's Cockatoo](name)
+    - Can you find [Mitchell's Cockatoo](name)?
+    - Find a product by [Copperband fish](name) name.
+    - I am looking for [Copperband fish](name)
+    - Show me [Copperband fish](name)
+    - Can you find [Copperband fish](name)?
+    - Find a product by [Blue Tang](name) name.
+    - I am looking for [Blue Tang](name)
+    - Show me [Blue Tang](name)
+    - Can you find [Blue Tang](name)?
+    - Find a product by [Black Clownfish](name) name.
+    - I am looking for [Black Clownfish](name)
+    - Show me [Black Clownfish](name)
+    - Can you find [Black Clownfish](name)?
+    - Find a product by [Coral Angelfish](name) name.
+    - I am looking for [Coral Angelfish](name)
+    - Show me [Coral Angelfish](name)
+    - Can you find [Coral Angelfish](name)?
+    - Find a product by [Longhorn Cowfish](name) name.
+    - I am looking for [Longhorn Cowfish](name)
+    - Show me [Longhorn Cowfish](name)
+    - Can you find [Longhorn Cowfish](name)?
+    - Find a product by [Beagle](name) name.
+    - I am looking for [Beagle](name)
+    - Show me [Beagle](name)
+    - Can you find [Beagle](name)?
+    - Find a product by [Australian Kelpie](name) name.
+    - I am looking for [Australian Kelpie](name)
+    - Show me [Australian Kelpie](name)
+    - Can you find [Australian Kelpie](name)?
+    - Find a product by [Doberman](name) name.
+    - I am looking for [Doberman](name)
+    - Show me [Doberman](name)
+    - Can you find [Doberman](name)?
+    - Find a product by [Border Collie](name) name.
+    - I am looking for [Border Collie](name)
+    - Show me [Border Collie](name)
+    - Can you find [Border Collie](name)?
+    - Find a product by [Chihuahua](name) name.
+    - I am looking for [Chihuahua](name)
+    - Show me [Chihuahua](name)
+    - Can you find [Chihuahua](name)?
+
+
+
+- intent: search_by_category
+  examples: |
+    - I need products for [Dog](category)
+    - Show me items in the [Dog](category) category
+    - Search for [Dog](category).
+    - Show me all [Dog](category).
+    - Find [Dog](category).
+    - Do you have [Dog](category)?
+    - I need products for [Bird](category)
+    - Show me items in the [Bird](category) category
+    - Search for [Bird](category).
+    - Show me all [Bird](category).
+    - Find [Bird](category).
+    - Do you have [Bird](category)?
+    - I need products for [Fish](category)
+    - Show me items in the [Fish](category) category
+    - Search for [Fish](category).
+    - Show me all [Fish](category).
+    - Find [Fish](category).
+    - Do you have [Fish](category)?
+
+
+- intent: search_cheaper_than
+  examples: |
+    - Find pets cheaper than [50](price)
+    - Do you have anything under [20 dollars](price)?
+    - Show me pets below [30](price)
+    - I am looking for pets less than [100](price)
+    - Are there any pets cheaper than [10 euros](price)?
+    - Show me pets that are cheaper than [200](price) euros.
+
+
+- intent: search_pricier_than
+  examples: |
+    - Find pets pricier than [50](price)
+    - Do you have anything over [20 dollars](price)?
+    - Show me pets over [30](price)
+    - I am looking for pets more than [100](price)
+    - Are there any pets pricier than [10 euros](price)?
+    - Show me pets that are pricier than [200](price) euros.
+
+- intent: search_within_price_range
+  examples: |
+    - Find products between [20](price_min) and [100](price_max)
+    - Show me items priced from [50](price_min) to [200](price_max)
+    - I am looking for products that cost between [10 dollars](price_min) and [50 dollars](price_max)
+    - Are there products within the range of [30](price_min) to [80](price_max)?
+    - List items that are priced between [5 euros](price_min) and [15 euros](price_max)
+
+- intent: search_by_age
+  examples: |
+    - Find pets that are [4 months](age) old.
+    - Are there any pets that are [4 months](age) old?
+    - Do you have pets that are [1 month](age) old?
+    - Show me pets suitable for [12 months](age)
+    - do you have pets that are [6 months](age) old?
+    - do you sell pets that are [7 months](age) old?
+
+
+- intent: search_by_size
+  examples: |
+    - Find pets that are [Small](size)
+    - Show me pets that are [Small](size)
+    - I am looking for pets for [Small](size)
+    - Do you have [Small](size) pets?
+    - What do you recommend for [Small](size)?
+    - Find pets that are [Medium](size)
+    - Show me pets that are [Medium](size)
+    - I am looking for pets for [Medium](size)
+    - Do you have [Medium](size) pets?
+    - What do you recommend for [Medium](size)?
+    - Find pets that are [Large](size)
+    - Show me pets that are [Large](size)
+    - I am looking for pets for [Large](size)
+    - Do you have [Large](size) pets?
+    - What do you recommend for [Large](size)?

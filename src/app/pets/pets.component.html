@@ -1,0 +1,91 @@
+<section class="container mt-5">
+    <div class="row" id="filters">
+        <div class="col-3">
+            <div class="mt-2">
+                <label for="inputName" class="form-label">Name</label>
+                <input type="email" class="form-control" id="inputName" placeholder="Pet name" [(ngModel)]="filterName" (input)="filterPets()">
+            </div>
+            <div class="mt-2">
+                <label for="inputDescription" class="form-label">Description</label>
+                <input type="email" class="form-control" id="inputDescription" placeholder="Search by guidelines" [(ngModel)]="filterDescription" (input)="filterPets()">
+            </div>
+            <div class="mt-2">
+                <label for="inputSelect" class="form-label">Pet type</label>
+                <select class="form-select" aria-label="Default select example" id="inputSelect" [(ngModel)]="filterPetType" (change)="filterPets()">
+                    <option disabled>Select a type</option>
+                    <option value="Bird">Birds</option>
+                    <option value="Fish">Fish</option>
+                    <option value="Dog">Dogs</option>
+                </select>
+            </div>
+            <div class="mt-2">
+                <label for="customRange" class="form-label">Age (months >= ) : {{ filterAge }}</label>
+                <input type="range" class="form-range" min="0" max="24" step="1" id="customRange" [(ngModel)]="filterAge" (input)="filterPets()">
+            </div>
+            <div class="mt-2">
+                <label for="inputSelect2" class="form-label">Size</label>
+                <select class="form-select" aria-label="Default select example" id="inputSelect2" [(ngModel)]="filterSize" (change)="filterPets()">
+                    <option value="">All sizes</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                </select>
+            </div>
+            <!-- <div class="mt-2">
+                <label for="origin" class="form-label">Origin</label>
+                <input type="text" class="form-control" id="origin" name="origin" placeholder="Enter origin">
+            </div> -->
+            <div class="mt-2">
+                <label for="minPrice" class="form-label">Min Price</label>
+                <input type="number" class="form-control" id="minPrice" name="minPrice" placeholder="Minimum price" [(ngModel)]="filterMinPrice" (input)="filterPets()">
+            </div>
+            <div class="mt-2 mb-2">
+                <label for="maxPrice" class="form-label">Max Price</label>
+                <input type="number" class="form-control" id="maxPrice" name="maxPrice" placeholder="Maximum price" [(ngModel)]="filterMaxPrice" (input)="filterPets()">
+            </div>
+            <!-- <div class="mt-2">
+                <div class="col-md-4">
+                    <label class="form-label">Reviews</label>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div> -->
+            <div class="mt-2 mb-2">
+                <button class="btn mt-2" (click)="resetFilters()"><i class="fa-regular fa-circle-xmark fa-lg"></i> Reset filters</button>
+            </div>
+        </div>
+
+        <div class="col" id="pets">
+            <div class="row">
+                <div class="col-md-3" *ngFor="let pet of filteredPets">
+                    <div class="card mb-3">
+                        <div class="">
+                            <div class="">
+                                <a style="text-decoration: none;" [routerLink]="['/petsdetails', pet.id]">
+                                    <img [src]="pet.picture" class="card-img-top" alt="{{ pet.name }}">
+                                </a>
+                                <div class="d-flex justify-content-center mt-1">
+                                    <h5 class="card-title">{{ pet.name }}</h5>
+                                </div>
+                            </div>
+                            <div class="card-body row">
+                                <!-- <p class="card-text">{{ pet.description }}</p>
+                                <p class="card-text"><strong>Type:</strong> {{ pet.type }}</p>
+                                <p class="card-text"><strong>Age:</strong> {{ pet.age }} month/s</p>
+                                <p class="card-text"><strong>Size:</strong> {{ pet.size }}</p>
+                                -->
+                                <div class="col">
+                                    <p class="card-text">Price: <br><h4><strong>${{ pet.price }}</strong></h4></p>
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <button class="btn" (click)="addToCart(pet)"><img src="../../assets/logos/add.png" width="35px" height="35px" alt="Add to cart" ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,142 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg mb-3">
+    <div class="container-fluid d-flex justify-content-between">
+      <a class="navbar-brand" routerLink="/">
+        <i class="fa-solid fa-shield-dog"></i> Pet Shop
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" style="color: black;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pets" style="color: black;">Pets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about" style="color: black;">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" style="color: black;">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item d-flex align-items-center justify-content-center" id="korpa">
+            <a class="nav-link" routerLink="/cart" title="Cart">
+              <i class="fa-solid fa-cart-shopping fa-lg"></i>
+              <span *ngIf="cartItemCount > 0" class="badge rounded-pill badge-notification bg-danger">{{ cartItemCount }}</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown ms-auto">
+            <a class="nav-link" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              *ngIf="userService.isLoggedIn()">
+              <img src="../assets/logos/profile.png" alt="Profile Picture" class="rounded-circle"
+                style="width: 35px; height: 35px;">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" routerLink="/profile" style="color: black;">Profile</a></li>
+              <li><a class="dropdown-item" routerLink="/logout" style="color: black;">Logout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item ms-auto" *ngIf="!userService.isLoggedIn()">
+            <a class="nav-link" routerLink="/login" style="color: black;">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="!userService.isLoggedIn()">
+            <a class="nav-link" routerLink="/signup" style="color: black;">Signup</a>
+          </li>
+
+
+
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/login" *ngIf="!userService.isLoggedIn()">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signup" *ngIf="!userService.isLoggedIn()">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/logout" *ngIf="userService.isLoggedIn()">Logout</a>
+          </li>
+          <button routerLink="/profile" *ngIf="userService.isLoggedIn()" class="btn btn-info"
+            style="color: rgb(0, 0, 0);">
+            {{ this.userService.currentUser!.email }}
+          </button> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet />
+
+
+
+
+  <div class="chatbot-container position-fixed bottom-0 end-0 p-3">
+    <div *ngIf="isWelcomeVisible" class="welcome-message card text-black p-3 mb-2">
+      <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Close" (click)="closeWelcomeMessage()"></button>
+      🙌 Welcome. How may I help you today? 🐢
+    </div>
+
+    <!--  Dugme za otvaranje chatbot-a  -->
+    <a class="btn rounded-circle p-1 me-4" id="chatbot" (click)="toggleChat()" *ngIf="!isChatVisible">
+      <img src="../assets/images/pet3.png" alt="">
+    </a>
+
+    <!-- Chatbot -->
+    <div *ngIf="isChatVisible" class="chatbox card chatbox-content" style="border: 1px solid #515151;">
+
+      <div class="card-header d-flex align-items-center justify-content-between" id="chatBotHeader">
+        <strong><span><i class="fa-solid fa-shield-dog fa-lg"></i></span> Pet Support Center</strong>
+        <button class="btn" aria-label="Close" title="Minimize" (click)="toggleChat()">
+          <i class="fa-solid fa-window-minimize"></i>
+        </button>
+      </div>
+
+      <div class="card-body chat-body" #chatBody>
+        <div *ngFor="let message of messages" class="message mb-2">
+          <div *ngIf="message.type === 'user'" class="text-end">
+            <div class="badge rounded-pill bg-primary text-white">{{ message.text }}</div>
+          </div>
+          <div *ngIf="message.type === 'bot'" class="text-start">
+            <div class="badge bg-secondary text-white msg-content" [innerHTML]="message.text"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-9">
+            <input type="text" class="form-control" [(ngModel)]="userMessage" (keyup.enter)="sendMessage()"
+              style="background-color: rgb(213, 255, 255); border: 1px solid black;" placeholder="Write a message..." />
+          </div>
+          <div class="col-1 d-flex justify-content-start align-items-center">
+            <div class="col">
+              <button class="btn" title="Delete message" (click)="deleteMessage()">
+                <i class="fa-solid fa-eraser"></i>
+              </button>
+            </div>
+            <div class="col-1">
+              <button class="btn" title="Send message">
+                <i class="fa-regular fa-paper-plane" (click)="sendMessage()"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <footer class="text-center mb-1">
+    <p>&copy; {{year}} The world of pets.</p>
+  </footer>
+</div>

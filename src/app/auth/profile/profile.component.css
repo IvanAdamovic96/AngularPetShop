@@ -1,0 +1,7 @@
+.accordion-button {
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button {
+    background-color: white !important; /* Ensures the default background */
+}

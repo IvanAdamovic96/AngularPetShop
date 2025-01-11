@@ -1,0 +1,101 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - show_all_products
+  - search_by_name
+  - search_by_category
+  - search_cheaper_than
+  - search_pricier_than
+  - search_within_price_range
+  - search_by_age
+  - search_by_size
+
+entities:
+  - name
+  - category
+  - price
+  - price_min
+  - price_max
+  - age
+  - size
+
+
+slots:
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  category:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: category
+  price:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: price
+  price_min:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: price_min
+  price_max:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: price_max
+  age:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: age
+  size:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: size
+
+
+actions:
+  - action_show_products
+  - action_search_by_name
+  - action_search_by_category
+  - action_search_cheaper_than
+  - action_search_pricier_than
+  - action_search_within_price_range
+  - action_search_by_age
+  - action_search_by_size
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
