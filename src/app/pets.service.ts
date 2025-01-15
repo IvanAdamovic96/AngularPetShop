@@ -25,13 +25,13 @@ export class PetsService {
         {
             id: 12131314,
             picture: "https://windycityparrot.com/wp-content/uploads/1920-cockatiel-parrot-in-the-garden-blog.jpg",
-            name: "Nimfa (Cacatuidae)",
+            name: "Nimfa",
             description: "Nymph - Today we find it all over the interior of Australia, in forests and steppe regions, and like a tigress, it inhabits parks and suburbs of big cities. After the tigress, the Australian parrot is the most cultivated. Her natural color is dark gray, she has a hump on her head, and the feathers near the ear holes are orange.",
             type: "Bird",
             age: 8,
             size: "Medium",
             rating: 4,
-            price: 50.00,
+            price: 50,
         },
         {
             id: 22135512,
@@ -42,7 +42,7 @@ export class PetsService {
             age: 7,
             size: "Small",
             rating: 2,
-            price: 20.00,
+            price: 20,
         },
         {
             id: 32135512,
@@ -53,7 +53,7 @@ export class PetsService {
             age: 14,
             size: "Large",
             rating: 5,
-            price: 1300.00,
+            price: 1300,
         },
         {
             id: 42213551,
@@ -64,7 +64,7 @@ export class PetsService {
             age: 13,
             size: "Medium",
             rating: 1,
-            price: 4500.00,
+            price: 4500,
         },
         {
             id: 21213555,
@@ -75,7 +75,7 @@ export class PetsService {
             age: 6,
             size: "Medium",
             rating: 3,
-            price: 1540.00,
+            price: 1540,
         },
         {
             id: 52213355,
@@ -86,7 +86,7 @@ export class PetsService {
             age: 6,
             size: "Small",
             rating: 4,
-            price: 40.00,
+            price: 40,
         },
         {
             id: 92213555,
@@ -97,7 +97,7 @@ export class PetsService {
             age: 3,
             size: "Small",
             rating: 3,
-            price: 250.00,
+            price: 250,
         },
         {
             id: 72213555,
@@ -108,7 +108,7 @@ export class PetsService {
             age: 2,
             size: "Small",
             rating: 2,
-            price: 35.00,
+            price: 35,
         },
         {
             id: 82213555,
@@ -119,7 +119,7 @@ export class PetsService {
             age: 8,
             size: "Small",
             rating: 4,
-            price: 85.00,
+            price: 85,
         },
         {
             id: 11213555,
@@ -130,7 +130,7 @@ export class PetsService {
             age: 5,
             size: "Small",
             rating: 5,
-            price: 30.00,
+            price: 30,
         },
         {
             id: 43213551,
@@ -141,7 +141,7 @@ export class PetsService {
             age: 3,
             size: "Medium",
             rating: 5,
-            price: 150.00,
+            price: 150
         },
         {
             id: 78913555,
@@ -152,7 +152,7 @@ export class PetsService {
             age: 6,
             size: "Medium",
             rating: 4,
-            price: 450.00,
+            price: 450
         },
         {
             id: 55643555,
@@ -163,7 +163,7 @@ export class PetsService {
             age: 12,
             size: "Large",
             rating: 4,
-            price: 650.00,
+            price: 650
         },
         {
             id: 65713555,
@@ -174,7 +174,7 @@ export class PetsService {
             age: 2,
             size: "Small",
             rating: 4,
-            price: 300.00,
+            price: 300
         },
         {
             id: 56213555,
@@ -185,7 +185,7 @@ export class PetsService {
             age: 3,
             size: "Small",
             rating: 1,
-            price: 250.00,
+            price: 250
         }
     ]
 

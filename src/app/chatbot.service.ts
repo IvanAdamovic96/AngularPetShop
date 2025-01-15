@@ -20,7 +20,7 @@ export class ChatbotService {
         return this.client.post<RasaModel[]>(
             url,
             {
-                refreshToken: localStorage.getItem('active') || '',
+                sender: 'user',
                 message: userMessage,
             },
             { headers: { Accept: 'application/json' } }
@@ -45,6 +45,6 @@ export class ChatbotService {
     }
 }
 
-function uuidv4(): string {
+/* function uuidv4(): string {
     return 'some-generated-uuid'; // Replace with actual UUID logic
-}
+} */

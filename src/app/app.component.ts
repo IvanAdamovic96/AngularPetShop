@@ -25,10 +25,13 @@ export class AppComponent implements OnInit {
   userMessage: string = '';
   messages: MessageModel[] = [];
   cartItemCount: number = 0;
-  botThinkingPlaceholder = 'Thinking...';
+  
   waitingForResponse = false;
 
-  constructor(public userService: UserService, private petService: PetsService, private cartService: CartService, private chatbotService: ChatbotService) { }
+  constructor(public userService: UserService, 
+              private petService: PetsService, 
+              private cartService: CartService, 
+              private chatbotService: ChatbotService) { }
 
 
 
@@ -47,12 +50,12 @@ export class AppComponent implements OnInit {
 
 
 
-    if (!localStorage.getItem('messages')) {
+    /* if (!localStorage.getItem('messages')) {
       localStorage.setItem(
         'messages',
         JSON.stringify([{ type: 'bot', text: 'Hi! How can I help you?' }])
       );
-    }
+    } */
 
   }
 
@@ -92,27 +95,64 @@ export class AppComponent implements OnInit {
       this.userMessage = '';
 
       this.pushMessage({ type: 'user', text: trimmedInput });
-      this.pushMessage({ type: 'bot', text: this.botThinkingPlaceholder });
 
       this.chatbotService.getRasaMessage(trimmedInput).subscribe(
         (response: RasaModel[]) => {
           if (response.length === 0) {
             this.pushMessage({
               type: 'bot',
-              text: "I'm sorry, I didn't understand that. Could you please rephrase your question?",
+              text: "I'm sorry. Could you please rephrase your question?",
             });
             return;
           }
 
           response
             .map((message) => {
-              if (message.image) {
-                return `<img src="${message.image}" width=200 />`;
-              }
+              /* if (message.image) {
+                return `<img src="${message.image}" />`;
+              } */
 
               if (message.attachment) {
                 let html = '';
 
+                /* for (let product of message.attachment) {
+                  html += `
+                    <div class="d-flex align-items-center bg-light rounded p-2 mb-2">
+                      <img src="${product.picture}" alt="${product.name}" style="width: 100px; height: 100px;">
+                      <div class="product-details">
+                        <div class="fw-bold text-primary">${product.name}</div>
+                        <div class="text-muted small">${product.type}</div>
+                        <div class="d-flex justify-content-between align-items-center mt-1">
+                          <span class="fw-bold text-success">${product.price}€</span>
+                          <a href="/product-list/${product.id}" class="btn btn-sm btn-outline-primary">Details</a>
+                        </div>
+                      </div>
+                    </div>
+                  `;
+                } */
+
+                for (let product of message.attachment) {
+                  html += `
+                    <div class="card card-chat mb-3">
+                      <img src="${product.picture}" class="card-img-top" alt="${product.name}" style="width: 100px; height: 100px;"">
+                      <div class="card-body">
+                        <h3 class="card-title">${product.name}</h3>
+                        <p class="card-text">${product.type}</p>
+                        <h4 class="fw-bold text-success">${product.price}€</h4>
+                      </div>
+                      <div class="card-body">
+                        <a class="btn btn-primary" href="/petsdetails/${product.id}">
+                          <i class="fa-solid fa-up-right-from-square"></i> Details
+                        </a>
+                        <a class="btn btn-success ms-1" href="/pets">
+                          <i class="fa-solid fa-magnifying-glass"></i> Browse All
+                        </a>
+                      </div>
+                    </div>
+                    `;
+                }
+
+                /*
                 for (let product of message.attachment) {
                   html += `
                 <div class="relative flex flex-col bg-white rounded-lg w-full">
@@ -122,7 +162,7 @@ export class AppComponent implements OnInit {
                     </span>
                   </div>
                   <div class="relative overflow-hidden bg-clip-border">
-                    <img src="${product.picture}" alt="${product.name}" class="w-full object-cover rounded-md" />
+                    <img src="${product.picture}" alt="${product.name}" class="w-12 h-12 object-cover rounded-md" />
                   </div>
                   <div class="p-2">
                     <div class="mb-2 flex flex-col">
@@ -147,7 +187,7 @@ export class AppComponent implements OnInit {
                   </div>
                 </div>
                 `;
-                }
+                }*/
                 return html;
               }
               return message.text;

@@ -94,6 +94,7 @@ nlu:
 
 #------------------
 
+#radi
 - intent: show_all_products
   examples: |
     - Show all products
@@ -102,6 +103,7 @@ nlu:
     - What products are available?
     - List all products for me
 
+#radi
 - intent: search_by_name
   examples: |
     - Find a product by [Nimfa](name) name.
@@ -166,7 +168,7 @@ nlu:
     - Can you find [Chihuahua](name)?
 
 
-
+#radi
 - intent: search_by_category
   examples: |
     - I need products for [Dog](category)
@@ -192,40 +194,39 @@ nlu:
 - intent: search_cheaper_than
   examples: |
     - Find pets cheaper than [50](price)
-    - Do you have anything under [20 dollars](price)?
+    - Do you have anything under [20](price)?
     - Show me pets below [30](price)
     - I am looking for pets less than [100](price)
-    - Are there any pets cheaper than [10 euros](price)?
+    - Are there any pets cheaper than [10](price)?
     - Show me pets that are cheaper than [200](price) euros.
 
 
 - intent: search_pricier_than
   examples: |
-    - Find pets pricier than [50](price)
-    - Do you have anything over [20 dollars](price)?
-    - Show me pets over [30](price)
-    - I am looking for pets more than [100](price)
-    - Are there any pets pricier than [10 euros](price)?
+    - Find pets pricier than [50](price) euros
+    - Do you have anything over [20](price) euros?
+    - Show me pets over [30](price) euros
+    - I am looking for pets more than [100](price) euros
+    - Are there any pets pricier than [10](price) euros?
     - Show me pets that are pricier than [200](price) euros.
 
 - intent: search_within_price_range
   examples: |
-    - Find products between [20](price_min) and [100](price_max)
-    - Show me items priced from [50](price_min) to [200](price_max)
-    - I am looking for products that cost between [10 dollars](price_min) and [50 dollars](price_max)
-    - Are there products within the range of [30](price_min) to [80](price_max)?
-    - List items that are priced between [5 euros](price_min) and [15 euros](price_max)
+    - Find products between [20](price_min) and [100](price_max) euros
+    - Show me items priced from [50](price_min) to [200](price_max) euros
+    - I am looking for products that cost between [10](price_min) and [50](price_max) euros
+    - Are there products within the range of [30](price_min) to [80](price_max) euros?
+    - List items that are priced between [5](price_min) and [15](price_max) euros
 
 - intent: search_by_age
   examples: |
-    - Find pets that are [4 months](age) old.
-    - Are there any pets that are [4 months](age) old?
-    - Do you have pets that are [1 month](age) old?
-    - Show me pets suitable for [12 months](age)
-    - do you have pets that are [6 months](age) old?
-    - do you sell pets that are [7 months](age) old?
+    - Are there any pets that are [4](age) months old?
+    - Do you have pets that are [1](age) months old?
+    - Show me pets suitable for [12](age) months
+    - do you have pets that are [6](age) months old?
+    - do you sell pets that are [7](age) months old?
 
-
+#radi
 - intent: search_by_size
   examples: |
     - Find pets that are [Small](size)

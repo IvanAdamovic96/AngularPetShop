@@ -80,7 +80,7 @@ nav {
 #chatBotHeader {
     padding-bottom: 25px;
     border-bottom: 0;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, #7fffd4 100%);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, #7fffd4 100%);
     /* --mask:
         radial-gradient(67.08px at 50% calc(100% - 90px), #000 99%, #0000 101%) calc(50% - 60px) 0/120px 100%,
         radial-gradient(67.08px at 50% calc(100% + 60px), #0000 99%, #000 101%) 50% calc(100% - 30px)/120px 100% repeat-x;
@@ -107,20 +107,34 @@ nav {
     max-width: 200px;
 }
 
+/* .product-image {
+    width: 100px;
+    height: 100px;
+} */
+
 
 #korpa {
-    position: relative; /* Postavlja kontejner u relativnu poziciju */
+    position: relative;
+    /* Postavlja kontejner u relativnu poziciju */
 }
 
 .badge-notification {
-    position: absolute; /* Omogućava precizno pozicioniranje unutar nav-item */
-    top: 10px; /* Podešava visinu badge-a */
-    right: 5px; /* Podešava pomeranje udesno */
-    transform: translate(50%, -50%); /* Podešava poziciju za savršeno centriranje */
-    font-size: 0.75rem; /* Prilagodi veličinu */
-    padding: 0.25em 0.4em; /* Veličina badge-a */
-    border: 2px solid white; /* Opciono - dodaj obrub */
-    z-index: 1; /* Osigurava da badge bude iznad ikonice */
+    position: absolute;
+    /* Omogućava precizno pozicioniranje unutar nav-item */
+    top: 10px;
+    /* Podešava visinu badge-a */
+    right: 5px;
+    /* Podešava pomeranje udesno */
+    transform: translate(50%, -50%);
+    /* Podešava poziciju za savršeno centriranje */
+    font-size: 0.75rem;
+    /* Prilagodi veličinu */
+    padding: 0.25em 0.4em;
+    /* Veličina badge-a */
+    border: 2px solid white;
+    /* Opciono - dodaj obrub */
+    z-index: 1;
+    /* Osigurava da badge bude iznad ikonice */
 }
 
 
