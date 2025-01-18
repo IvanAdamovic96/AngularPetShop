@@ -19,15 +19,27 @@ nav {
 .welcome-message {
     position: absolute;
     bottom: 90px;
+    /* Position above the chatbot button */
     right: 50px;
+    /* Align with the chatbot button */
     background-color: #fff;
+    /* White background */
     border: 1px solid #ccc;
+    /* Light border */
     border-radius: 12px;
+    /* Rounded corners */
     z-index: 1050;
+    /* Ensure it appears above other elements */
     width: 250px;
+    /* Set a max width */
     font-size: 14px;
+    /* Adjust text size */
     text-align: center;
+    /* Center the text */
+
+    /* Text color */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
 }
 
 /*
@@ -103,18 +115,26 @@ nav {
 
 #korpa {
     position: relative;
+    /* Postavlja kontejner u relativnu poziciju */
 }
 
 .badge-notification {
     position: absolute;
+    /* Omogućava precizno pozicioniranje unutar nav-item */
     top: 10px;
+    /* Podešava visinu badge-a */
     right: 5px;
+    /* Podešava pomeranje udesno */
     transform: translate(50%, -50%);
+    /* Podešava poziciju za savršeno centriranje */
     font-size: 0.75rem;
+    /* Prilagodi veličinu */
     padding: 0.25em 0.4em;
+    /* Veličina badge-a */
     border: 2px solid white;
+    /* Opciono - dodaj obrub */
     z-index: 1;
- 
+    /* Osigurava da badge bude iznad ikonice */
 }
 
 

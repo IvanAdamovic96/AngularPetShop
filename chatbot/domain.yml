@@ -54,7 +54,7 @@ slots:
       - type: from_entity
         entity: price_max
   age:
-    type: text
+    type: float
     mappings:
       - type: from_entity
         entity: age

@@ -5,6 +5,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 import re
+import logging
+logger = logging.getLogger(__name__)
 
 
 def load_data():
@@ -203,7 +205,6 @@ class ActionSearchPricierThan(Action):
         return [SlotSet("age", None)]
  """
 
-
 class ActionSearchWithinPriceRange(Action):
 
     def name(self) -> Text:
@@ -214,10 +215,9 @@ class ActionSearchWithinPriceRange(Action):
         price_max = tracker.get_slot("price_max")
 
         print(f"Price Min: {price_min}, Price Max: {price_max}")
-        
-        
-        
-        # Ensure the values are valid integers
+
+
+
         """ try:
             price_min = int(price_min)
             price_max = int(price_max)
@@ -228,12 +228,12 @@ class ActionSearchWithinPriceRange(Action):
         products = load_data()
         results = [pet for pet in products if pet["price"] >= int(price_min) and pet["price"] <= int(price_max)]
         print(f"Results: {results}")
-        
+
         if results:
             dispatcher.utter_message(text=f"Products between {price_min} and {price_max}:", attachment=results)
         else:
             dispatcher.utter_message(text=f"No products found between {price_min} and {price_max}.")
-        
+
         return [SlotSet("price_min", None), SlotSet("price_max", None)]
 
 
@@ -243,10 +243,10 @@ class ActionSearchByAge(Action):
         return "action_search_by_age"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        age = tracker.get_slot("age")
+        age = int(tracker.get_slot("age"))
         products = load_data()
         results = [p for p in products if p["age"] == age]
-        dispatcher.utter_message(text=f"Products with age '{age}':", attachment=results)
+        dispatcher.utter_message(text=f"Products with age of '{age}' months:", attachment=results)
         return [SlotSet("age", None)]
 
 

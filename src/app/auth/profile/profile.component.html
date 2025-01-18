@@ -114,7 +114,7 @@
                             <span>Order #{{ order.id }} - Total: {{ order.totalAmount }} €</span>
                             <div class="badge text-bg-warning me-3" [ngClass]="{'text-bg-danger': order.status === 'Cancelled',
                                                                                 'text-bg-warning': order.status === 'Pending',
-                                                                                'text-bg-success': order.status === 'Completed'}" 
+                                                                                'text-bg-success': order.status === 'Paid'}" 
                                                                                 style="font-size: 13px;">
                             {{ order.status }}
                             </div>
@@ -149,13 +149,17 @@
                             </div>
                         </div>
                         <div class="row text-end">
-                            <div class="col-10 text-end">
+                            <div class="col-8 text-start">
                                 <strong>Date of order: </strong> {{ order.createdAt }}
                             </div>
-                            <div class="col">
+                            <div class="col pe-5">
                                 <div class="">
-                                    <button [disabled]="order.status === 'Cancelled'" class="btn btn-outline-danger"
-                                        (click)="updateOrderStatus(order.id, 'Cancelled')">Cancel Order</button>
+                                    <button [disabled]="order.status === 'Cancelled' || order.status === 'Paid'" 
+                                        class="btn btn-outline-danger me-1"
+                                        (click)="updateOrderStatus(order.id, 'Cancelled')">Cancel</button>
+                                    <button [disabled]="order.status === 'Paid' || order.status === 'Cancelled'" 
+                                        class="btn btn-outline-success"
+                                        (click)="updateOrderStatus(order.id, 'Paid')">€ Pay</button>
                                 </div>
                             </div>
                         </div>
