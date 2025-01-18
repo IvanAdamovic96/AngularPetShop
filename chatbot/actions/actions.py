@@ -203,31 +203,6 @@ class ActionSearchPricierThan(Action):
         return [SlotSet("age", None)]
  """
 
-""" class ActionSearchCheaperThan(Action):
-
-    def name(self) -> Text:
-        return "action_search_cheaper_than"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        price = tracker.get_slot("price")
-        products = load_data()
-        results = [p for p in products if p["price"] <= price]
-        dispatcher.utter_message(text=f"Products cheaper than {price}:", attachment=results)
-        return [SlotSet("price", None)]
-
- 
-class ActionSearchPricierThan(Action):
-
-    def name(self) -> Text:
-        return "action_search_pricier_than"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        price = tracker.get_slot("price")
-        products = load_data()
-        results = [p for p in products if p["price"] > price]
-        dispatcher.utter_message(text=f"Products pricier than {price}:", attachment=results)
-        return [SlotSet("price", None)]
- """
 
 class ActionSearchWithinPriceRange(Action):
 
@@ -251,7 +226,7 @@ class ActionSearchWithinPriceRange(Action):
             return [] """
 
         products = load_data()
-        results = [pet for pet in products if pet["price"] >= price_min and pet["price"] <= price_max]
+        results = [pet for pet in products if pet["price"] >= int(price_min) and pet["price"] <= int(price_max)]
         print(f"Results: {results}")
         
         if results:

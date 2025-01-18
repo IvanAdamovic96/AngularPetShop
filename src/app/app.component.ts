@@ -9,6 +9,9 @@ import { PetsService } from './pets.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { CartService } from './cart/cart.service';
 import { ChatbotService } from './chatbot.service';
+import { from } from 'rxjs';
+import { Pets } from '../models/pets.model';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -25,13 +28,14 @@ export class AppComponent implements OnInit {
   userMessage: string = '';
   messages: MessageModel[] = [];
   cartItemCount: number = 0;
-  
+
   waitingForResponse = false;
 
-  constructor(public userService: UserService, 
-              private petService: PetsService, 
-              private cartService: CartService, 
-              private chatbotService: ChatbotService) { }
+  constructor(public userService: UserService,
+    private petService: PetsService,
+    private toastr: ToastrService,
+    private cartService: CartService,
+    private chatbotService: ChatbotService) { }
 
 
 
@@ -41,21 +45,13 @@ export class AppComponent implements OnInit {
       this.isWelcomeVisible = true;
     }, 5000);
 
-    const cartItemNumbers = this.cartService.updateCartCount(); 
+    const cartItemNumbers = this.cartService.updateCartCount();
     this.cartItemCount = cartItemNumbers;
 
     window.addEventListener('storage', () => {
       this.cartService.updateCartCount();
     });
 
-
-
-    /* if (!localStorage.getItem('messages')) {
-      localStorage.setItem(
-        'messages',
-        JSON.stringify([{ type: 'bot', text: 'Hi! How can I help you?' }])
-      );
-    } */
 
   }
 
@@ -84,6 +80,12 @@ export class AppComponent implements OnInit {
   }
 
 
+
+  addToCart(product: Pets) {
+    this.cartService.addToCart(product);
+    this.cartService.updateCartCount();
+    this.toastr.success('Pet added to cart');
+  }
 
 
   sendMessage() {
@@ -224,5 +226,7 @@ export class AppComponent implements OnInit {
 
   title = 'Pet Shop';
   year = new Date().getFullYear();
-}import { from } from 'rxjs';
+}
+
+
 
