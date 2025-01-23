@@ -30,7 +30,11 @@ stories:
   - action: utter_goodbye
 
 
-# here you define an example of a conversation
+# example of a conversations
+- story: add a pet to cart
+  steps:
+  - intent: add_to_cart
+  - action: action_add_to_cart
 
 - story: show all products
   steps:
@@ -72,4 +76,5 @@ stories:
   steps:
   - intent: search_by_size
   - action: action_search_by_size
+
 

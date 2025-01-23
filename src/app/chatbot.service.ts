@@ -27,24 +27,5 @@ export class ChatbotService {
         );
     }
 
-    /* private retrieveRasaSession() {
-        if (!localStorage.getItem('session')) {
-            localStorage.setItem('session', uuidv4());
-        }
-        return localStorage.getItem('session');
-    } */
-
-    public formatDate(date: string | null) {
-        if (date === null) return 'On Time';
-        return new Date(date).toLocaleString();
-    }
-
-    public formatValue(string: string | null) {
-        if (string === null) return 'N/A';
-        return string;
-    }
 }
 
-/* function uuidv4(): string {
-    return 'some-generated-uuid'; // Replace with actual UUID logic
-} */

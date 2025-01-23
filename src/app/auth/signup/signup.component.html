@@ -43,7 +43,7 @@
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="password">Password</label>
                                             <input type="password" id="password" name="password" class="form-control"
-                                                placeholder="min 8 characters" ngModel required minlength="8" />
+                                                placeholder="min 4 characters" ngModel required minlength="4" />
                                         </div>
                                     </div>
 
@@ -76,6 +76,13 @@
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <div class="text-danger" *ngIf="errorExists">{{ errorText }}</div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div data-mdb-input-init class="form-outline flex-fill ps-5 text-center">
+                                            Already have an account? <a routerLink="/login"
+                                                style="text-decoration: none;">Login here.</a>
+                                        </div>
                                     </div>
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">

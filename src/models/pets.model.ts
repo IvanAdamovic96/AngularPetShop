@@ -8,6 +8,5 @@ export interface Pets {
     size: string;
     rating: number;
     price: number;
-    status?: 'preuzeto'| 'u toku' | 'otkazano' | null;
     amount?: number | null;
 }

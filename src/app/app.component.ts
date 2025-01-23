@@ -9,6 +9,7 @@ import { PetsService } from './pets.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { CartService } from './cart/cart.service';
 import { ChatbotService } from './chatbot.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -31,7 +32,8 @@ export class AppComponent implements OnInit {
   constructor(public userService: UserService, 
               private petService: PetsService, 
               private cartService: CartService, 
-              private chatbotService: ChatbotService) { }
+              private chatbotService: ChatbotService,
+              private toastr: ToastrService) { }
 
 
 
@@ -41,21 +43,15 @@ export class AppComponent implements OnInit {
       this.isWelcomeVisible = true;
     }, 5000);
 
-    const cartItemNumbers = this.cartService.updateCartCount(); 
-    this.cartItemCount = cartItemNumbers;
+    /* const cartItemNumbers = this.cartService.updateCartCount(); 
+    this.cartItemCount = cartItemNumbers; */
 
-    window.addEventListener('storage', () => {
+    /* window.addEventListener('storage', () => {
       this.cartService.updateCartCount();
-    });
+    }); */
 
 
 
-    /* if (!localStorage.getItem('messages')) {
-      localStorage.setItem(
-        'messages',
-        JSON.stringify([{ type: 'bot', text: 'Hi! How can I help you?' }])
-      );
-    } */
 
   }
 
@@ -70,7 +66,6 @@ export class AppComponent implements OnInit {
   toggleChat() {
     this.isChatVisible = !this.isChatVisible;
 
-    //welcome message above chatbot
     if (this.isChatVisible) {
       this.isWelcomeVisible = false;
     }
@@ -79,7 +74,6 @@ export class AppComponent implements OnInit {
 
   pushMessage(message: MessageModel) {
     this.messages.push(message);
-    // Save messages in local storage
     localStorage.setItem('messages', JSON.stringify(this.messages));
   }
 
@@ -108,28 +102,33 @@ export class AppComponent implements OnInit {
 
           response
             .map((message) => {
-              /* if (message.image) {
-                return `<img src="${message.image}" />`;
-              } */
+
+              if (message.json_message && message.json_message.actionType === 'add_to_cart'){
+
+                const pet = message.json_message.products;
+
+                if (pet && pet.length > 0) {
+                  // Add products to cart using CartService
+                  pet.forEach((product) => this.cartService.addToCart(product));
+    
+                  // Notify the user
+                  this.pushMessage({
+                    type: 'bot',
+                    text: `Added ${pet[0].name} to your cart.`,
+                  });
+                  this.toastr.success('Pet added to cart.');
+                } else {
+                  this.pushMessage({
+                    type: 'bot',
+                    text: "Could not add the pet to the cart.",
+                  });
+                }
+              }
+
 
               if (message.attachment) {
                 let html = '';
 
-                /* for (let product of message.attachment) {
-                  html += `
-                    <div class="d-flex align-items-center bg-light rounded p-2 mb-2">
-                      <img src="${product.picture}" alt="${product.name}" style="width: 100px; height: 100px;">
-                      <div class="product-details">
-                        <div class="fw-bold text-primary">${product.name}</div>
-                        <div class="text-muted small">${product.type}</div>
-                        <div class="d-flex justify-content-between align-items-center mt-1">
-                          <span class="fw-bold text-success">${product.price}€</span>
-                          <a href="/product-list/${product.id}" class="btn btn-sm btn-outline-primary">Details</a>
-                        </div>
-                      </div>
-                    </div>
-                  `;
-                } */
 
                 for (let product of message.attachment) {
                   html += `
@@ -152,42 +151,7 @@ export class AppComponent implements OnInit {
                     `;
                 }
 
-                /*
-                for (let product of message.attachment) {
-                  html += `
-                <div class="relative flex flex-col bg-white rounded-lg w-full">
-                  <div class="px-2 py-1">
-                    <span class="text-slate-800 text-xl font-semibold">
-                      ${product.name}
-                    </span>
-                  </div>
-                  <div class="relative overflow-hidden bg-clip-border">
-                    <img src="${product.picture}" alt="${product.name}" class="w-12 h-12 object-cover rounded-md" />
-                  </div>
-                  <div class="p-2">
-                    <div class="mb-2 flex flex-col">
-                      <span class="text-slate-800 font-semibold">
-                        Species: ${product.type}
-                      </span>
-                      <span class="text-slate-800 font-semibold">
-                        Size: ${product.size}
-                      </span>
-                    </div>
-                    <p class="text-slate-600 text-justify">
-                      ${product.description}
-                    </p>
-                    <div class="flex justify-between items-center">
-                      <span class="text-slate-800 text-xl font-semibold">
-                        ${product.price}€
-                      </span>
-                      <a href="/product-list/${product.id}" class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-md">
-                        <i class="fa-solid fa-circle-info"></i> Details
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                `;
-                }*/
+                
                 return html;
               }
               return message.text;
@@ -216,13 +180,8 @@ export class AppComponent implements OnInit {
     this.isWelcomeVisible = false;
   }
 
-  /* updateCartCount(): void {
-    const cart = this.cartService.getCart(); // Uzmi korpu iz localStorage
-    this.cartItemCount = cart.reduce((total, item) => total + item.quantity, 0); // Izračunaj ukupnu količinu
-    console.log(this.cartItemCount);
-  } */
 
   title = 'Pet Shop';
   year = new Date().getFullYear();
-}import { from } from 'rxjs';
+}
 

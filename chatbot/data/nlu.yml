@@ -94,7 +94,7 @@ nlu:
 
 #------------------
 
-#radi
+
 - intent: show_all_products
   examples: |
     - Show all products
@@ -103,7 +103,7 @@ nlu:
     - What products are available?
     - List all products for me
 
-#radi
+
 - intent: search_by_name
   examples: |
     - Find a product by [Nimfa](name) name.
@@ -168,7 +168,7 @@ nlu:
     - Can you find [Chihuahua](name)?
 
 
-#radi
+
 - intent: search_by_category
   examples: |
     - I need products for [Dog](category)
@@ -210,6 +210,7 @@ nlu:
     - Are there any pets pricier than [10](price) euros?
     - Show me pets that are pricier than [200](price) euros.
 
+
 - intent: search_within_price_range
   examples: |
     - Find products between [20](price_min) and [100](price_max) euros
@@ -236,6 +237,7 @@ nlu:
     - pets costing [50](price_min) to [200](price_max) euros, please.
     - find pets priced [300](price_min) - [600](price_max).
 
+
 - intent: search_by_age
   examples: |
     - Are there any pets that are [4](age) months old?
@@ -258,7 +260,7 @@ nlu:
     - I want a pet that is exactly [20](age) months olda
     - Can you show pets that are [19](age) months old?
 
-#radi
+
 - intent: search_by_size
   examples: |
     - Find pets that are [Small](size)
@@ -276,3 +278,82 @@ nlu:
     - I am looking for pets for [Large](size)
     - Do you have [Large](size) pets?
     - What do you recommend for [Large](size)?
+
+
+- intent: add_to_cart
+  examples: |
+    - Add [Nimfa](name) to cart
+    - Add [Nimfa](name) to the cart
+    - I want to add [Nimfa](name) to my cart
+    - Please add [Nimfa](name) to my cart
+    - Place [Nimfa](name) in my cart
+    - Add [Blue Parakeet](name) to cart
+    - Add [Blue Parakeet](name) to the cart
+    - I want to add [Blue Parakeet](name) to my cart
+    - Please add [Blue Parakeet](name) to my cart
+    - Place [Blue Parakeet](name) in my cart
+    - Add [Camelot Macaw](name) to cart
+    - Add [Camelot Macaw](name) to the cart
+    - I want to add [Camelot Macaw](name) to my cart
+    - Please add [Camelot Macaw](name) to my cart
+    - Place [Camelot Macaw](name) in my cart
+    - Add [Solomon Eclectus](name) to cart
+    - Add [Solomon Eclectus](name) to the cart
+    - I want to add [Solomon Eclectus](name) to my cart
+    - Please add [Solomon Eclectus](name) to my cart
+    - Place [Solomon Eclectus](name) in my cart
+    - Add [Mitchell's Cockatoo](name) to cart
+    - Add [Mitchell's Cockatoo](name) to the cart
+    - I want to add [Mitchell's Cockatoo](name) to my cart
+    - Please add [Mitchell's Cockatoo](name) to my cart
+    - Place [Mitchell's Cockatoo](name) in my cart
+    - Add [Copperband fish](name) to cart
+    - Add [Copperband fish](name) to the cart
+    - I want to add [Copperband fish](name) to my cart
+    - Please add [Copperband fish](name) to my cart
+    - Place [Copperband fish](name) in my cart
+    - Add [Blue Tang](name) to cart
+    - Add [Blue Tang](name) to the cart
+    - I want to add [Blue Tang](name) to my cart
+    - Please add [Blue Tang](name) to my cart
+    - Place [Blue Tang](name) in my cart
+    - Add [Black Clownfish](name) to cart
+    - Add [Black Clownfish](name) to the cart
+    - I want to add [Black Clownfish](name) to my cart
+    - Please add [Black Clownfish](name) to my cart
+    - Place [Black Clownfish](name) in my cart
+    - Add [Coral Angelfish](name) to cart
+    - Add [Coral Angelfish](name) to the cart
+    - I want to add [Coral Angelfish](name) to my cart
+    - Please add [Coral Angelfish](name) to my cart
+    - Place [Coral Angelfish](name) in my cart
+    - Add [Longhorn Cowfish](name) to cart
+    - Add [Longhorn Cowfish](name) to the cart
+    - I want to add [Longhorn Cowfish](name) to my cart
+    - Please add [Longhorn Cowfish](name) to my cart
+    - Place [Longhorn Cowfish](name) in my cart
+    - Add [Beagle](name) to cart
+    - Add [Beagle](name) to the cart
+    - I want to add [Beagle](name) to my cart
+    - Please add [Beagle](name) to my cart
+    - Place [Beagle](name) in my cart
+    - Add [Australian Kelpie](name) to cart
+    - Add [Australian Kelpie](name) to the cart
+    - I want to add [Australian Kelpie](name) to my cart
+    - Please add [Australian Kelpie](name) to my cart
+    - Place [Australian Kelpie](name) in my cart
+    - Add [Doberman](name) to cart
+    - Add [Doberman](name) to the cart
+    - I want to add [Doberman](name) to my cart
+    - Please add [Doberman](name) to my cart
+    - Place [Doberman](name) in my cart
+    - Add [Border Collie](name) to cart
+    - Add [Border Collie](name) to the cart
+    - I want to add [Border Collie](name) to my cart
+    - Please add [Border Collie](name) to my cart
+    - Place [Border Collie](name) in my cart
+    - Add [Chihuahua](name) to cart
+    - Add [Chihuahua](name) to the cart
+    - I want to add [Chihuahua](name) to my cart
+    - Please add [Chihuahua](name) to my cart
+    - Place [Chihuahua](name) in my cart

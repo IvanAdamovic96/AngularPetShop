@@ -154,10 +154,10 @@
                             </div>
                             <div class="col pe-5">
                                 <div class="">
-                                    <button [disabled]="order.status === 'Cancelled' || order.status === 'Paid'" 
+                                    <button [hidden]="order.status === 'Cancelled' || order.status === 'Paid'" 
                                         class="btn btn-outline-danger me-1"
                                         (click)="updateOrderStatus(order.id, 'Cancelled')">Cancel</button>
-                                    <button [disabled]="order.status === 'Paid' || order.status === 'Cancelled'" 
+                                    <button [hidden]="order.status === 'Paid' || order.status === 'Cancelled'" 
                                         class="btn btn-outline-success"
                                         (click)="updateOrderStatus(order.id, 'Paid')">€ Pay</button>
                                 </div>
