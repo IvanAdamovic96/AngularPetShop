@@ -5,7 +5,7 @@ export interface RasaModel {
     image: string | null
     attachment: Pets[] | null
     text: string | null
-    json_message: {
+    custom: {
         actionType: string;
         products: Pets[];
     } | null;

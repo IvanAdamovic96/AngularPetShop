@@ -12,7 +12,7 @@
             <div class="mt-2">
                 <label for="inputSelect" class="form-label">Pet type</label>
                 <select class="form-select" aria-label="Default select example" id="inputSelect" [(ngModel)]="filterPetType" (change)="filterPets()">
-                    <option disabled>Select a type</option>
+                    <option value="">Select a type</option>
                     <option value="Bird">Birds</option>
                     <option value="Fish">Fish</option>
                     <option value="Dog">Dogs</option>

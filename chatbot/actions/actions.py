@@ -215,23 +215,32 @@ class ActionAddToCart(Action):
         except:
             dispatcher.utter_message(text="There was an error loading the data. Please try again.")
 
-        name = tracker.get_slot("name")
+        id = tracker.get_slot("id")
 
-        if not name:
-            dispatcher.utter_message(text="Please provide a name.")
+        if not id:
+            dispatcher.utter_message(text="Please provide a valid pet ID number.")
             return []
         
-        results = [p for p in products if name.lower() in p["name"].lower()]
-
-        if results:
+        try:
+            pet_id = int(id)  # Convert slot value to an integer
+        except ValueError:
+            dispatcher.utter_message(text="Pet ID must be a valid number.")
+            return []
+        
+        result = [p for p in products if p["id"] == pet_id]
+        #print(result)
+        if result:
             dispatcher.utter_message(
-                text=f"Added {name} to the cart.",
-                json_message={
-                    "actionType": "add_to_cart",
-                    "products": results},
+                #text=f"Added pet with {id} to the cart.",
+                custom={
+                    "actionType": "addToCart",
+                    "products": result
+                    }
                 )
+            #print({"actionType": "addToCart", "products": result})
+        
         else:
             dispatcher.utter_message(text="We dont have a pet with that name.")
 
         # Clear the slot after processing
-        return [SlotSet("name", None)]
+        return [SlotSet("id", None)]

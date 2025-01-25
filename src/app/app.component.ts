@@ -26,14 +26,14 @@ export class AppComponent implements OnInit {
   userMessage: string = '';
   messages: MessageModel[] = [];
   cartItemCount: number = 0;
-  
+
   waitingForResponse = false;
 
-  constructor(public userService: UserService, 
-              private petService: PetsService, 
-              private cartService: CartService, 
-              private chatbotService: ChatbotService,
-              private toastr: ToastrService) { }
+  constructor(public userService: UserService,
+    private petService: PetsService,
+    private cartService: CartService,
+    private chatbotService: ChatbotService,
+    private toastr: ToastrService) { }
 
 
 
@@ -103,18 +103,45 @@ export class AppComponent implements OnInit {
           response
             .map((message) => {
 
-              if (message.json_message && message.json_message.actionType === 'add_to_cart'){
+              //console.log("No valid actionType or message:", message);
+              
+              /*
+              if (message.json_message && message.json_message.actionType === 'addToCart'){
 
                 const pet = message.json_message.products;
+                console.log("Pet added: " + pet);
 
-                if (pet && pet.length > 0) {
+                if (pet) {
                   // Add products to cart using CartService
-                  pet.forEach((product) => this.cartService.addToCart(product));
-    
+                  //pet.forEach((product) => this.cartService.addToCart(product));
+                  this.cartService.addToCart(pet);
                   // Notify the user
                   this.pushMessage({
                     type: 'bot',
-                    text: `Added ${pet[0].name} to your cart.`,
+                    text: `Added ${pet.name} to your cart!!!.`,
+                  });
+                  this.toastr.success('Pet added to cart.');
+                } else {
+                  this.pushMessage({
+                    type: 'bot',
+                    text: "Could not add the pet to the cart.",
+                  });
+                }
+              }
+              */
+
+              
+              if (message.custom && message.custom.actionType === 'addToCart') {
+                const pet = message.custom.products;
+                //console.log("Pet added: ", pet);
+        
+                if (pet && pet.length > 0) {
+                  // Add products to cart using CartService
+                  this.cartService.addToCart(pet[0]);
+                  // Notify the user
+                  this.pushMessage({
+                    type: 'bot',
+                    text: `Added ${pet[0].name} with ID: ${pet[0].id} to your cart.`,
                   });
                   this.toastr.success('Pet added to cart.');
                 } else {
@@ -151,7 +178,7 @@ export class AppComponent implements OnInit {
                     `;
                 }
 
-                
+
                 return html;
               }
               return message.text;

@@ -282,78 +282,79 @@ nlu:
 
 - intent: add_to_cart
   examples: |
-    - Add [Nimfa](name) to cart
-    - Add [Nimfa](name) to the cart
-    - I want to add [Nimfa](name) to my cart
-    - Please add [Nimfa](name) to my cart
-    - Place [Nimfa](name) in my cart
-    - Add [Blue Parakeet](name) to cart
-    - Add [Blue Parakeet](name) to the cart
-    - I want to add [Blue Parakeet](name) to my cart
-    - Please add [Blue Parakeet](name) to my cart
-    - Place [Blue Parakeet](name) in my cart
-    - Add [Camelot Macaw](name) to cart
-    - Add [Camelot Macaw](name) to the cart
-    - I want to add [Camelot Macaw](name) to my cart
-    - Please add [Camelot Macaw](name) to my cart
-    - Place [Camelot Macaw](name) in my cart
-    - Add [Solomon Eclectus](name) to cart
-    - Add [Solomon Eclectus](name) to the cart
-    - I want to add [Solomon Eclectus](name) to my cart
-    - Please add [Solomon Eclectus](name) to my cart
-    - Place [Solomon Eclectus](name) in my cart
-    - Add [Mitchell's Cockatoo](name) to cart
-    - Add [Mitchell's Cockatoo](name) to the cart
-    - I want to add [Mitchell's Cockatoo](name) to my cart
-    - Please add [Mitchell's Cockatoo](name) to my cart
-    - Place [Mitchell's Cockatoo](name) in my cart
-    - Add [Copperband fish](name) to cart
-    - Add [Copperband fish](name) to the cart
-    - I want to add [Copperband fish](name) to my cart
-    - Please add [Copperband fish](name) to my cart
-    - Place [Copperband fish](name) in my cart
-    - Add [Blue Tang](name) to cart
-    - Add [Blue Tang](name) to the cart
-    - I want to add [Blue Tang](name) to my cart
-    - Please add [Blue Tang](name) to my cart
-    - Place [Blue Tang](name) in my cart
-    - Add [Black Clownfish](name) to cart
-    - Add [Black Clownfish](name) to the cart
-    - I want to add [Black Clownfish](name) to my cart
-    - Please add [Black Clownfish](name) to my cart
-    - Place [Black Clownfish](name) in my cart
-    - Add [Coral Angelfish](name) to cart
-    - Add [Coral Angelfish](name) to the cart
-    - I want to add [Coral Angelfish](name) to my cart
-    - Please add [Coral Angelfish](name) to my cart
-    - Place [Coral Angelfish](name) in my cart
-    - Add [Longhorn Cowfish](name) to cart
-    - Add [Longhorn Cowfish](name) to the cart
-    - I want to add [Longhorn Cowfish](name) to my cart
-    - Please add [Longhorn Cowfish](name) to my cart
-    - Place [Longhorn Cowfish](name) in my cart
-    - Add [Beagle](name) to cart
-    - Add [Beagle](name) to the cart
-    - I want to add [Beagle](name) to my cart
-    - Please add [Beagle](name) to my cart
-    - Place [Beagle](name) in my cart
-    - Add [Australian Kelpie](name) to cart
-    - Add [Australian Kelpie](name) to the cart
-    - I want to add [Australian Kelpie](name) to my cart
-    - Please add [Australian Kelpie](name) to my cart
-    - Place [Australian Kelpie](name) in my cart
-    - Add [Doberman](name) to cart
-    - Add [Doberman](name) to the cart
-    - I want to add [Doberman](name) to my cart
-    - Please add [Doberman](name) to my cart
-    - Place [Doberman](name) in my cart
-    - Add [Border Collie](name) to cart
-    - Add [Border Collie](name) to the cart
-    - I want to add [Border Collie](name) to my cart
-    - Please add [Border Collie](name) to my cart
-    - Place [Border Collie](name) in my cart
-    - Add [Chihuahua](name) to cart
-    - Add [Chihuahua](name) to the cart
-    - I want to add [Chihuahua](name) to my cart
-    - Please add [Chihuahua](name) to my cart
-    - Place [Chihuahua](name) in my cart
+    - Add [12131314](id) to cart
+    - Add [12131314](id) to the cart
+    - I want to add [12131314](id) to my cart
+    - Please add [12131314](id) to my cart
+    - Place [Nimfa](12131314) in my cart
+    - Add [22135512](id) to cart
+    - Add [22135512](id) to the cart
+    - I want to add [22135512](id) to my cart
+    - Please add [22135512](id) to my cart
+    - Place [22135512](id) in my cart
+    - Add [32135512](id) to cart
+    - Add [32135512](id) to the cart
+    - I want to add [32135512](id) to my cart
+    - Please add [32135512](id) to my cart
+    - Place [32135512](id) in my cart
+    - Add [42213551](id) to cart
+    - Add [42213551](id) to the cart
+    - I want to add [42213551](id) to my cart
+    - Please add [42213551](id) to my cart
+    - Place [42213551](id) in my cart
+    - Add [21213555](id) to cart
+    - Add [21213555](id) to the cart
+    - I want to add [21213555](id) to my cart
+    - Please add [21213555](id) to my cart
+    - Place [21213555](id) in my cart
+    - Add [52213355](id) to cart
+    - Add [52213355](id) to the cart
+    - I want to add [52213355](id) to my cart
+    - Please add [52213355](id) to my cart
+    - Place [52213355](id) in my cart
+    - Add [92213555](id) to cart
+    - Add [92213555](id) to the cart
+    - I want to add [92213555](id) to my cart
+    - Please add [92213555](id) to my cart
+    - Place [92213555](id) in my cart
+    - Add [72213555](id) to cart
+    - Add [72213555](id) to the cart
+    - I want to add [72213555](id) to my cart
+    - Please add [72213555](id) to my cart
+    - Place [72213555](id) in my cart
+    - Add [82213555](id) to cart
+    - Add [82213555](id) to the cart
+    - I want to add [82213555](id) to my cart
+    - Please add [82213555](id) to my cart
+    - Place [82213555](id) in my cart
+    - Add [11213555](id) to cart
+    - Add [11213555](id) to the cart
+    - I want to add [11213555](id) to my cart
+    - Please add [11213555](id) to my cart
+    - Place [11213555](id) in my cart
+    - Add [43213551](id) to cart
+    - Add [43213551](id) to the cart
+    - I want to add [43213551](id) to my cart
+    - Please add [43213551](id) to my cart
+    - Place [43213551](id) in my cart
+    - Add [78913555](id) to cart
+    - Add [78913555](id) to the cart
+    - I want to add [78913555](id) to my cart
+    - Please add [78913555](id) to my cart
+    - Place [78913555](id) in my cart
+    - Add [55643555](id) to cart
+    - Add [55643555](id) to the cart
+    - I want to add [55643555](id) to my cart
+    - Please add [55643555](id) to my cart
+    - Place [55643555](id) in my cart
+    - Add [65713555](id) to cart
+    - Add [65713555](id) to the cart
+    - I want to add [65713555](id) to my cart
+    - Please add [65713555](id) to my cart
+    - Place [65713555](id) in my cart
+    - Add [56213555](id) to cart
+    - Add [56213555](id) to the cart
+    - I want to add [56213555](id) to my cart
+    - Please add [56213555](id) to my cart
+    - Place [56213555](id) in my cart
+

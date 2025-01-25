@@ -44,7 +44,6 @@ export class PetsComponent implements OnInit {
 
 
   filterPets(): void {
-    // Filtrira listu pets prema imenu
     this.filteredPets = this.pets.filter(pet =>
       pet.name.toLowerCase().includes(this.filterName.toLowerCase()) &&
       pet.description.toLowerCase().includes(this.filterDescription.toLowerCase()) &&

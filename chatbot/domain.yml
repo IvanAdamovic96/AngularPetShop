@@ -19,6 +19,7 @@ intents:
   - search_by_size
 
 entities:
+  - id
   - name
   - category
   - price
@@ -29,6 +30,11 @@ entities:
 
 
 slots:
+  id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: id
   name:
     type: text
     mappings:
