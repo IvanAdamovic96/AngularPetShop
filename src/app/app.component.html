@@ -49,23 +49,6 @@
           <li class="nav-item" *ngIf="!userService.isLoggedIn()">
             <a class="nav-link" routerLink="/signup" style="color: black;">Signup</a>
           </li>
-
-
-
-
-          <!-- <li class="nav-item">
-            <a class="nav-link" routerLink="/login" *ngIf="!userService.isLoggedIn()">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/signup" *ngIf="!userService.isLoggedIn()">Signup</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/logout" *ngIf="userService.isLoggedIn()">Logout</a>
-          </li>
-          <button routerLink="/profile" *ngIf="userService.isLoggedIn()" class="btn btn-info"
-            style="color: rgb(0, 0, 0);">
-            {{ this.userService.currentUser!.email }}
-          </button> -->
         </ul>
       </div>
     </div>

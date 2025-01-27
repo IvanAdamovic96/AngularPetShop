@@ -43,16 +43,6 @@ export class AppComponent implements OnInit {
       this.isWelcomeVisible = true;
     }, 5000);
 
-    /* const cartItemNumbers = this.cartService.updateCartCount(); 
-    this.cartItemCount = cartItemNumbers; */
-
-    /* window.addEventListener('storage', () => {
-      this.cartService.updateCartCount();
-    }); */
-
-
-
-
   }
 
 
@@ -103,42 +93,12 @@ export class AppComponent implements OnInit {
           response
             .map((message) => {
 
-              //console.log("No valid actionType or message:", message);
-              
-              /*
-              if (message.json_message && message.json_message.actionType === 'addToCart'){
-
-                const pet = message.json_message.products;
-                console.log("Pet added: " + pet);
-
-                if (pet) {
-                  // Add products to cart using CartService
-                  //pet.forEach((product) => this.cartService.addToCart(product));
-                  this.cartService.addToCart(pet);
-                  // Notify the user
-                  this.pushMessage({
-                    type: 'bot',
-                    text: `Added ${pet.name} to your cart!!!.`,
-                  });
-                  this.toastr.success('Pet added to cart.');
-                } else {
-                  this.pushMessage({
-                    type: 'bot',
-                    text: "Could not add the pet to the cart.",
-                  });
-                }
-              }
-              */
-
               
               if (message.custom && message.custom.actionType === 'addToCart') {
                 const pet = message.custom.products;
-                //console.log("Pet added: ", pet);
         
                 if (pet && pet.length > 0) {
-                  // Add products to cart using CartService
                   this.cartService.addToCart(pet[0]);
-                  // Notify the user
                   this.pushMessage({
                     type: 'bot',
                     text: `Added ${pet[0].name} with ID: ${pet[0].id} to your cart.`,
