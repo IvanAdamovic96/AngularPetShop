@@ -22,8 +22,8 @@ export class CartComponent implements OnInit {
   existingOrders: any[] = [];
   totalAmount: any;
   pets: any;
-  something: any;
-  quantity?: number;
+
+  //quantity?: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -42,7 +42,7 @@ export class CartComponent implements OnInit {
     this.existingOrders = storedOrders ? JSON.parse(storedOrders) : [];
 
     this.calculateTotalAmount();
-    console.log(this.cart);
+    //console.log(this.cart);
   }
 
 
@@ -77,6 +77,7 @@ export class CartComponent implements OnInit {
       this.calculateTotalAmount();
     }
   }
+
   calculateTotalAmount(): number {
     if (!this.cart || this.cart.length === 0) {
       console.warn('Cart is empty or not initialized');
@@ -88,15 +89,12 @@ export class CartComponent implements OnInit {
       return acc + (item.price * (item.quantity || 1));
     }, 0);
 
-    this.totalAmount = parseFloat(this.totalAmount.toFixed(2));
-    console.log('Total Amount:', this.totalAmount);
-
-    /* if (!this.something) {
-      this.something = { data: [] };
-    } */
-
-    //this.something.data = [this.totalAmount];
+    
     return this.totalAmount;
+
+    //this.totalAmount = parseFloat(this.totalAmount.toFixed(2));
+    //console.log('Total Amount:', this.totalAmount);
+
   }
 
 
@@ -136,22 +134,9 @@ export class CartComponent implements OnInit {
     localStorage.removeItem('cart');
     this.router.navigate(['/home']);
     this.toastr.success('Ordered successfully')
-    console.log(order);
+    //console.log(order);
 
   }
-
-
-  /* //order status
-  updateOrderStatus(orderId: string, newStatus: 'Delivered' | 'Cancelled'): void {
-    const order = this.existingOrders.find(o => o.id === orderId);
-    if (order) {
-      order.status = newStatus;
-      localStorage.setItem('orders', JSON.stringify(this.existingOrders));
-      this.toastr.success(`Order status updated to ${newStatus}`);
-    } else {
-      this.toastr.error('Order not found');
-    }
-  } */
 
 
 }

@@ -25,9 +25,9 @@ export class AppComponent implements OnInit {
   isWelcomeVisible = false;
   userMessage: string = '';
   messages: MessageModel[] = [];
-  cartItemCount: number = 0;
+  //cartItemCount: number = 0;
 
-  waitingForResponse = false;
+  //waitingForResponse = false;
 
   constructor(public userService: UserService,
     private petService: PetsService,
@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
 
 
   sendMessage() {
-    if (this.waitingForResponse) return;
+    //if (this.waitingForResponse) return;
 
     if (this.userMessage.trim()) {
       const trimmedInput = this.userMessage;
@@ -141,6 +141,7 @@ export class AppComponent implements OnInit {
 
                 return html;
               }
+              
               return message.text;
             })
             .forEach((message) => {

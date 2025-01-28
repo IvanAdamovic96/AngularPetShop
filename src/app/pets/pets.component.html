@@ -19,7 +19,7 @@
                 </select>
             </div>
             <div class="mt-2">
-                <label for="customRange" class="form-label">Age (months >= ) : {{ filterAge }}</label>
+                <label for="customRange" class="form-label">Age >= {{ filterAge }} month/s</label>
                 <input type="range" class="form-range" min="0" max="24" step="1" id="customRange" [(ngModel)]="filterAge" (input)="filterPets()">
             </div>
             <div class="mt-2">
@@ -31,10 +31,6 @@
                     <option value="Large">Large</option>
                 </select>
             </div>
-            <!-- <div class="mt-2">
-                <label for="origin" class="form-label">Origin</label>
-                <input type="text" class="form-control" id="origin" name="origin" placeholder="Enter origin">
-            </div> -->
             <div class="mt-2">
                 <label for="minPrice" class="form-label">Min Price</label>
                 <input type="number" class="form-control" id="minPrice" name="minPrice" placeholder="Minimum price" [(ngModel)]="filterMinPrice" (input)="filterPets()">
@@ -43,14 +39,6 @@
                 <label for="maxPrice" class="form-label">Max Price</label>
                 <input type="number" class="form-control" id="maxPrice" name="maxPrice" placeholder="Maximum price" [(ngModel)]="filterMaxPrice" (input)="filterPets()">
             </div>
-            <!-- <div class="mt-2">
-                <div class="col-md-4">
-                    <label class="form-label">Reviews</label>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                    </div>
-                </div>
-            </div> -->
             <div class="mt-2 mb-2">
                 <button class="btn mt-2" (click)="resetFilters()"><i class="fa-regular fa-circle-xmark fa-lg"></i> Reset filters</button>
             </div>

@@ -101,6 +101,9 @@
         </div>
         <!-- ########## -->
     </div>
+
+
+
     <div class="row mt-4">
         <h4>Order history:</h4>
         <hr class="my-4">
@@ -111,7 +114,7 @@
                         [attr.data-bs-target]="'#collapse' + i" aria-expanded="true"
                         [attr.aria-controls]="'collapse' + i">
                         <span class="d-flex w-100 justify-content-between align-items-center">
-                            <span>Order #{{ order.id }} - Total: {{ order.totalAmount }} €</span>
+                            <span>Order #{{ order.id }} - Total: {{ order.totalAmount }} $</span>
                             <div class="badge text-bg-warning me-3" [ngClass]="{'text-bg-danger': order.status === 'Cancelled',
                                                                                 'text-bg-warning': order.status === 'Pending',
                                                                                 'text-bg-success': order.status === 'Paid'}" 
@@ -119,7 +122,7 @@
                             {{ order.status }}
                             </div>
                         </span>
-                    </button><!-- sredi statuse -->
+                    </button>
                 </h2>
                 <div [id]="'collapse' + i" class="accordion-collapse collapse"
                     [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
@@ -136,7 +139,7 @@
                                 <strong>Quantity:</strong> {{ item.quantity }}
                             </div>
                             <div class="col-md-3 col-lg-3">
-                                <strong>Price:</strong> {{ item.price }} €
+                                <strong>Price:</strong> {{ item.price }} $
                             </div>
                             <div class="pt-2">
                                 <h6>Details:</h6>
@@ -159,7 +162,7 @@
                                         (click)="updateOrderStatus(order.id, 'Cancelled')">Cancel</button>
                                     <button [hidden]="order.status === 'Paid' || order.status === 'Cancelled'" 
                                         class="btn btn-outline-success"
-                                        (click)="updateOrderStatus(order.id, 'Paid')">€ Pay</button>
+                                        (click)="updateOrderStatus(order.id, 'Paid')">$ Pay</button>
                                 </div>
                             </div>
                         </div>
@@ -188,45 +191,11 @@
                   (click)="changePage(currentPage + 1)">
                   Next
                 </button>
-              </div>            
+            </div>            
         </div>
         <hr class="my-4">
-
-
-        <!-- <div class="accordion" id="accordionExample" *ngIf="orderedItems.length > 0;">
-            <div class="row" *ngFor="let order of orderedItems">
-                <div class="row accordion-button " data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne" *ngFor="let item of order.cartItems">
-                    <div class="col accordion-item">
-                        <div class="row mb-4 d-flex justify-content-between align-items-center"
-                            >
-                            <div class="col-md-3 col-lg-3 col-xl-3">
-                                <h6 class="text-muted">{{ item.name }}</h6>
-                            </div>
-                            <div class="col-md-3 col-lg-3 d-flex">
-                                {{ item.quantity }}
-                            </div>
-                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">Total Amount: {{ order.totalAmount }} €</h6>
-                    </div>
-                    <div class="row" id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <ul class="list-inline">
-                                <li>Age: {{ item.age }}</li>
-                                <li>Type: {{ item.type }}</li>
-                                <li>Price: {{ item.price }}</li>
-                                <li>Size: {{ item.size }}</li>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
+
+
     
 </div>

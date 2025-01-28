@@ -63,10 +63,12 @@ export class UserService {
         return this.currentUser !== null;
     }
 
+    /*
     getUserName(user: User): string {
         return user ? user.email : '';
     }
 
+    
     getUserById(id: number): User {
         let foundUser!: User;
 
@@ -80,6 +82,7 @@ export class UserService {
         this.saveUserToLocalStorage(foundUser);
         return foundUser;
     }
+    */
 
     getUser(userEmail: string): User | null{
         return UserService.dummyUserList.find(user => user.email === userEmail) || null;

@@ -15,7 +15,7 @@ import { CartService } from '../cart/cart.service';
 })
 export class PetsdetailsComponent implements OnInit {
 
-  id!: number;
+  //id!: number;
   pet: { id: number; picture: string; name: string; description: string; type: string; age: number; size: string; rating: number; price: number; } | undefined;
 
 
@@ -31,16 +31,6 @@ export class PetsdetailsComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.petsService.fetchProduct(id);
     this.pet = this.petsService.pet;
-
-    /* this.route.params.subscribe(params => {
-      const idParam = params['id'];
-      if(idParam !== null && idParam!== undefined){
-        this.id = +idParam;
-        this.petsService.fetchProduct(this.id);
-      }else{
-        console.warn('Id is null or undefined');
-      }
-    }); */
   }
 
   addToCart(pet: Pets) {

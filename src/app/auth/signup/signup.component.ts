@@ -32,14 +32,12 @@ export class SignupComponent {
     }
 
     if (existingUser) {
-      this.errorExists = true;
-      this.errorText = "User with this email already exists.";
       this.toastr.error('User with this email already exists.', 'Error');
       return;
     }
 
     this.errorExists = false;
-    const newUser = this.userService.registerUser(form.value.firstName,
+    this.userService.registerUser(form.value.firstName,
                                                   form.value.lastName,
                                                   form.value.email,
                                                   form.value.password,

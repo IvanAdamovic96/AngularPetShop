@@ -39,7 +39,7 @@ export class PetsComponent implements OnInit {
   ngOnInit(): void {
     this.pets = this.petsService.getPets();
     this.filteredPets = this.pets;
-    this.cartService.updateCartCount();
+    //this.cartService.updateCartCount();
   }
 
 
@@ -58,7 +58,7 @@ export class PetsComponent implements OnInit {
 
   addToCart(pet: Pets) {
     this.cartService.addToCart(pet);
-    this.cartService.updateCartCount();
+    //this.cartService.updateCartCount();
     this.toastr.success('Pet added to cart');
   }
 

@@ -7,11 +7,12 @@ import { RasaModel } from "../models/rasa.model";
     providedIn: 'root',
 })
 export class ChatbotService {
-    static instance: ChatbotService;
+    //static instance: ChatbotService;
     //private baseUrl: string;
     private client: HttpClient;
 
     private constructor() {
+        //inject HttpClient instance
         this.client = inject(HttpClient)
     }
 
@@ -23,6 +24,7 @@ export class ChatbotService {
                 sender: 'user',
                 message: userMessage,
             },
+            //ocekujemo JSON format kao odgovor.
             { headers: { Accept: 'application/json' } }
         );
     }

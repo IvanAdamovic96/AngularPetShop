@@ -9,14 +9,8 @@ import { HttpClient } from "@angular/common/http";
 })
 export class PetsService {
 
-    //private cart: Pets[] = [];
 
-    /* addToCart(pet: Pets) {
-      this.cart.push(pet);
-      console.log(this.cart);
-    } */
-
-    constructor(/* private http: HttpClient */) { }
+    constructor() { }
 
     pet: { id: number; picture: string; name: string; description: string; type: string; age: number; size: string; rating: number; price: number; } | undefined;
 
@@ -200,30 +194,5 @@ export class PetsService {
             console.warn(`Pet with ID ${id} not found`);
         }
 
-    }
-
-
-
-
-
-
-
-    //rasa bot 
-
-    public sendRasaMessage(value: string) {
-
-        /* const url = 'http://localhost:5005/webhooks/rest/webhook'
-        return this.http.post<RasaModel[]>(url,
-            {
-                sender: 'localStorage.getItem("session")',
-                refreshToken: '',
-                message: value
-            },
-            {
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }
-        ) */
     }
 }

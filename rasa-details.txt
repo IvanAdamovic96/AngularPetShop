@@ -1,19 +1,14 @@
 HOW TO RUN:
-  - rasa train
-  - rasa run actions
-   rasa run cors "*"
-   rasa run --cors "*"
 
+  rasa actions/train:
+    - rasa train
+    - rasa run actions
 
+  rasa server:
+    - rasa run --cors "*"
 
 
 domain.yml: This file defines the responses, intents, entities, and actions.
 data/nlu.yml: Here we define the training data for your chatbot, such as how users may ask to search for pets.
 data/rules.yml: This file contains the rules for how your assistant should behave during the conversation.
-actions.py: This is where we write custom actions like fetching pets from your database and providing detailed responses.
-
-In the domain.yml file, we’ll define the following:
-
-Intents: These are what the user’s messages are trying to convey. For example, intents like greet, search_pet, and order_pet.
-Entities: These are specific pieces of information from user input. For example, type, age, size, and price of pets.
-Responses: These are the chatbot’s responses to the user. We'll define responses for greetings, search results, and more.
+actions.py: This is where we write custom actions like.

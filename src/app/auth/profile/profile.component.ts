@@ -68,7 +68,7 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  updateOrderStatus(orderId: string, newStatus: 'Delivered' | 'Cancelled' | 'Paid'): void {
+  updateOrderStatus(orderId: string, newStatus: 'Cancelled' | 'Paid'): void {
 
     const storedOrders = localStorage.getItem('orders');
     this.existingOrders = storedOrders ? JSON.parse(storedOrders) : [];
