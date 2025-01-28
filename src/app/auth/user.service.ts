@@ -34,7 +34,7 @@ export class UserService {
             firstName: "Ivan",
             lastName: "Adamovic",
             email: "ivan@gmail.com",
-            password: "22222222",
+            password: "2222",
             phone: "0611451808",
             date: new Date("1996-08-29"),
             address:"Nikole Pasica 9"
