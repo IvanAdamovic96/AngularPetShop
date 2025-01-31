@@ -24,7 +24,7 @@ export class UserService {
             firstName: "Milan",
             lastName: "Pronic",
             email: "pronicmilan@gmail.com",
-            password: "11111111",
+            password: "1111",
             phone: "0627588756",
             date: new Date("2000-02-25"),
             address:"Bulevar dr Zorana Djindjica"

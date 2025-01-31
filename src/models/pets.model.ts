@@ -1,3 +1,5 @@
+import { Review } from "./review.model";
+
 export interface Pets {
     id: number;
     picture: string;
@@ -8,5 +10,6 @@ export interface Pets {
     size: string;
     rating: number;
     price: number;
-    amount?: number | null;
+    reviews?: Array<Review>;
+    /* amount?: number | null; */
 }

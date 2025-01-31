@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   userMessage: string = '';
   messages: MessageModel[] = [];
   //cartItemCount: number = 0;
+  //cart: any = [];
 
   //waitingForResponse = false;
 
@@ -43,6 +44,8 @@ export class AppComponent implements OnInit {
       this.isWelcomeVisible = true;
     }, 5000);
 
+    /* this.cart = this.cartService.getCart();
+    console.log(this.cart.length); */
   }
 
 
@@ -167,6 +170,7 @@ export class AppComponent implements OnInit {
   closeWelcomeMessage() {
     this.isWelcomeVisible = false;
   }
+
 
 
   title = 'Pet Shop';

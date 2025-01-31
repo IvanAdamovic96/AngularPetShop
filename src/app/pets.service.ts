@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Pets } from "../models/pets.model";
 import { RasaModel } from "../models/rasa.model";
 import { HttpClient } from "@angular/common/http";
+import { Review } from "../models/review.model";
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class PetsService {
 
     constructor() { }
 
-    pet: { id: number; picture: string; name: string; description: string; type: string; age: number; size: string; rating: number; price: number; } | undefined;
+    pet: { id: number; picture: string; name: string; description: string; type: string; age: number; size: string; rating: number; price: number; reviews: Array<Review>} | undefined;
 
 
     public pets: Pets[] = [
@@ -26,6 +27,20 @@ export class PetsService {
             size: "Medium",
             rating: 4,
             price: 50,
+            reviews: [
+                {
+                  user: 'John Smith',
+                  rating: 5,
+                  comment: 'Amazing with kids and very playful.',
+                  date: new Date("2025-01-25 14:34:52")
+                },
+                {
+                  user: 'Emily Johnson',
+                  rating: 2,
+                  comment: 'Great parrot, but requires a lot of attention.',
+                  date: new Date("2025-01-15 11:25:20")
+                },
+              ]
         },
         {
             id: 22135512,
@@ -188,11 +203,23 @@ export class PetsService {
         return this.pets;
     }
 
-    fetchProduct(id: number) {
+    /* fetchProduct(id: number) : Pets {
         this.pet = this.getPets().find(p => p.id === id);
         if (!this.pet) {
             console.warn(`Pet with ID ${id} not found`);
         }
 
+    } */
+
+    fetchProduct(id: number): Pets {
+        let foundProduct!: Pets;
+    
+        this.pets.find((product) => {
+          if (product.id === id) {
+            foundProduct = product;
+          }
+        });
+    
+        return foundProduct;
     }
 }

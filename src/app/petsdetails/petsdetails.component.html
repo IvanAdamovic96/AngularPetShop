@@ -16,7 +16,7 @@
                 </div>
                 <div class="row ps-2 mt-4">
                     <button class="btn btn-warning" style="width: 150px;" (click)="addToCart(pet)">
-                        <i class="fa-solid fa-cart-shopping fa-lg"></i> 
+                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
                         Add to cart
                     </button>
                 </div>
@@ -60,7 +60,7 @@
                             <strong>Rating:</strong>
                         </div>
                         <div class="col">
-                            {{pet.rating}}
+                            {{ totalRating }}
                         </div>
                     </div>
                 </div>
@@ -70,11 +70,14 @@
                         <div class="comment-box ml-2">
                             <h4>Add a comment</h4>
                             <div class="rating">
-                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                <input type="radio" name="rating" value="5" id="5"><label title="Excellent"
+                                    for="5">☆</label>
+                                <input type="radio" name="rating" value="4" id="4"><label title="Very good"
+                                    for="4">☆</label>
+                                <input type="radio" name="rating" value="3" id="3"><label title="Good" for="3">☆</label>
+                                <input type="radio" name="rating" value="2" id="2"><label title="Bad" for="2">☆</label>
+                                <input type="radio" name="rating" value="1" id="1"><label title="Very bad"
+                                    for="1">☆</label>
                             </div>
                             <div class="comment-area">
                                 <textarea class="form-control" placeholder="what is your view?" rows="3"></textarea>
@@ -88,7 +91,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="text-end">
-                                            <button class="btn btn-success send btn-sm">Send <i
+                                            <button class="btn btn-success send btn-sm">Submit <i
                                                     class="fa fa-long-arrow-right ml-1"></i></button>
                                         </div>
                                     </div>
@@ -96,8 +99,35 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mt-5">
+                        <div class="col-10 mb-2" *ngFor="let review of pet.reviews">
+                            <div class="card">
+                                <div class="row p-4">
+                                    <div class="col-2">
+                                        <img class="img-fluid rounded rounded-circle m-0 border border-5" loading="lazy"
+                                            width="100px" src="../assets/logos/profile.png" alt="Luna John">
+                                    </div>
+                                    <div class="col">
+                                        <h4 class="mb-1 h5">{{ review.user }}</h4>
+                                        <figure class="m-0 p-0">
+                                            <figcaption class="">
+                                                <h5 class="fs-6 text-secondary mb-0">
+                                                    <span *ngFor="let star of [1, 2, 3, 4, 5]" [ngClass]="{'filled': star <= review.rating, 'empty': star > review.rating}">
+                                                        ★
+                                                    </span>
+                                                  </h5>
+                                                <blockquote class="bsb-blockquote-icon mb-3">{{ review.comment }}
+                                                </blockquote>
+                                                <p class="mt-2 text-end" style="font-size: 13px;">
+                                                    {{ review.date.toLocaleString() }}</p>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>

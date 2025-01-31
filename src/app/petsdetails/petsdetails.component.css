@@ -10,6 +10,22 @@ textarea {
 
 
 
+.filled {
+    color: gold; /* Popunjena zvezdica */
+    font-size: 20px;
+  }
+  .empty {
+    color: gray; /* Prazna zvezdica */
+    font-size: 20px;
+  }
+
+
+
+
+
+
+
+
 .rating {
   display: flex;
          margin-top: -10px;
