@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/fa4a4562-f5cc-450a-ae68-72fa5fcf0799)
+
+
 # PetShop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
